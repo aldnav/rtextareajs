@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Richtextify</title>
+        <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="lib/emojione.min.js"></script>
+        <link rel="stylesheet" href="lib/emojione.min.css"/>
+        <link rel="stylesheet" href="lib/emojione.sprites.css">
+        <link rel="stylesheet" href="lib/emojione-theme.css">
+        <link rel="stylesheet" href="rtextarea.css">
+        <link rel="stylesheet" href="app.css">
+        <script type="text/javascript" src="lib/zepto.min.js"></script>
+    </head>
+    <body>
+        <div class="rtextarea-container"></div>
+        <script id="r-editor-template" type="x-tmpl-mustache">
+            <div class="r-editor" contenteditable="true"></div>
+            <div class="r-editor-plugins">
+                <div class="r-editor-plugins-option" data-plugin="emoji">
+                    <i class="fa fa-smile-o plugin-emoji" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="r-editor-plugins-extra hidden"></div>
+        </script>
+        <script id="emoji-plugin-template" type="x-tmpl-mustache">
+            <div class="emoji-list">
+                <ul>
+                    <li class="emojione-1f600" href="#" data-shortname=":grinning:" title="grinning face"></li>
+                    <li class="emojione-1f601" href="#" data-shortname=":grin:" title="grinning face with smiling eyes"></li>
+                    <li class="emojione-1f602" href="#" data-shortname=":joy:" title="face with tears of joy"></li>
+                    <li class="emojione-1f603" href="#" data-shortname=":smiley:" title="smiling face with open mouth"></li>
+                    <li class="emojione-1f604" href="#" data-shortname=":smile:" title="smiling face with open mouth and smiling eyes"></li>
+                    <li class="emojione-1f605" href="#" data-shortname=":sweat_smile:" title="smiling face with open mouth and cold sweat"></li>
+                    <li class="emojione-1f606" href="#" data-shortname=":laughing:" title="smiling face with open mouth and tightly-closed eyes"></li>
+                    <li class="emojione-1f607" href="#" data-shortname=":innocent:" title="smiling face with halo"></li>
+                    <li class="emojione-1f608" href="#" data-shortname=":smiling_imp:" title="smiling face with horns"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f47f" href="#" data-shortname=":imp:" title="imp"></li>
+                    <li class="emojione-1f609" href="#" data-shortname=":wink:" title="winking face"></li>
+                    <li class="emojione-1f60a" href="#" data-shortname=":blush:" title="smiling face with smiling eyes"></li>
+                    <li class="emojione-263a" href="#" data-shortname=":relaxed:" title="white smiling face"></li>
+                    <li class="emojione-1f60b" href="#" data-shortname=":yum:" title="face savouring delicious food"></li>
+                    <li class="emojione-1f60c" href="#" data-shortname=":relieved:" title="relieved face"></li>
+                    <li class="emojione-1f60d" href="#" data-shortname=":heart_eyes:" title="smiling face with heart-shaped eyes"></li>
+                    <li class="emojione-1f60e" href="#" data-shortname=":sunglasses:" title="smiling face with sunglasses"></li>
+                    <li class="emojione-1f60f" href="#" data-shortname=":smirk:" title="smirking face"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f610" href="#" data-shortname=":neutral_face:" title="neutral face"></li>
+                    <li class="emojione-1f611" href="#" data-shortname=":expressionless:" title="expressionless face"></li>
+                    <li class="emojione-1f612" href="#" data-shortname=":unamused:" title="unamused face"></li>
+                    <li class="emojione-1f613" href="#" data-shortname=":sweat:" title="face with cold sweat"></li>
+                    <li class="emojione-1f614" href="#" data-shortname=":pensive:" title="pensive face"></li>
+                    <li class="emojione-1f615" href="#" data-shortname=":confused:" title="confused face"></li>
+                    <li class="emojione-1f616" href="#" data-shortname=":confounded:" title="confounded face"></li>
+                    <li class="emojione-1f617" href="#" data-shortname=":kissing:" title="kissing face"></li>
+                    <li class="emojione-1f618" href="#" data-shortname=":kissing_heart:" title="face throwing a kiss"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f619" href="#" data-shortname=":kissing_smiling_eyes:" title="kissing face with smiling eyes"></li>
+                    <li class="emojione-1f61a" href="#" data-shortname=":kissing_closed_eyes:" title="kissing face with closed eyes"></li>
+                    <li class="emojione-1f61b" href="#" data-shortname=":stuck_out_tongue:" title="face with stuck-out tongue"></li>
+                    <li class="emojione-1f61c" href="#" data-shortname=":stuck_out_tongue_winking_eye:" title="face with stuck-out tongue and winking eye"></li>
+                    <li class="emojione-1f61d" href="#" data-shortname=":stuck_out_tongue_closed_eyes:" title="face with stuck-out tongue and tightly-closed eyes"></li>
+                    <li class="emojione-1f61e" href="#" data-shortname=":disappointed:" title="disappointed face"></li>
+                    <li class="emojione-1f61f" href="#" data-shortname=":worried:" title="worried face"></li>
+                    <li class="emojione-1f620" href="#" data-shortname=":angry:" title="angry face"></li>
+                    <li class="emojione-1f621" href="#" data-shortname=":rage:" title="pouting face"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f622" href="#" data-shortname=":cry:" title="crying face"></li>
+                    <li class="emojione-1f623" href="#" data-shortname=":persevere:" title="persevering face"></li>
+                    <li class="emojione-1f624" href="#" data-shortname=":triumph:" title="face with look of triumph"></li>
+                    <li class="emojione-1f625" href="#" data-shortname=":disappointed_relieved:" title="disappointed but relieved face"></li>
+                    <li class="emojione-1f626" href="#" data-shortname=":frowning:" title="frowning face with open mouth"></li>
+                    <li class="emojione-1f627" href="#" data-shortname=":anguished:" title="anguished face"></li>
+                    <li class="emojione-1f628" href="#" data-shortname=":fearful:" title="fearful face"></li>
+                    <li class="emojione-1f629" href="#" data-shortname=":weary:" title="weary face"></li>
+                    <li class="emojione-1f62a" href="#" data-shortname=":sleepy:" title="sleepy face"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f62b" href="#" data-shortname=":tired_face:" title="tired face"></li>
+                    <li class="emojione-1f62c" href="#" data-shortname=":grimacing:" title="grimacing face"></li>
+                    <li class="emojione-1f62d" href="#" data-shortname=":sob:" title="loudly crying face"></li>
+                    <li class="emojione-1f62e" href="#" data-shortname=":open_mouth:" title="face with open mouth"></li>
+                    <li class="emojione-1f62f" href="#" data-shortname=":hushed:" title="hushed face"></li>
+                    <li class="emojione-1f630" href="#" data-shortname=":cold_sweat:" title="face with open mouth and cold sweat"></li>
+                    <li class="emojione-1f631" href="#" data-shortname=":scream:" title="face screaming in fear"></li>
+                    <li class="emojione-1f632" href="#" data-shortname=":astonished:" title="astonished face"></li>
+                    <li class="emojione-1f633" href="#" data-shortname=":flushed:" title="flushed face"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f634" href="#" data-shortname=":sleeping:" title="sleeping face"></li>
+                    <li class="emojione-1f635" href="#" data-shortname=":dizzy_face:" title="dizzy face"></li>
+                    <li class="emojione-1f636" href="#" data-shortname=":no_mouth:" title="face without mouth"></li>
+                    <li class="emojione-1f637" href="#" data-shortname=":mask:" title="face with medical mask"></li>
+                    <li class="emojione-1f641" href="#" data-shortname=":slight_frown:" title="slightly frowning face"></li>
+                    <li class="emojione-1f642" href="#" data-shortname=":slight_smile:" title="slightly smiling face"></li>
+                    <li class="emojione-1f638" href="#" data-shortname=":smile_cat:" title="grinning cat face with smiling eyes"></li>
+                    <li class="emojione-1f639" href="#" data-shortname=":joy_cat:" title="cat face with tears of joy"></li>
+                    <li class="emojione-1f63a" href="#" data-shortname=":smiley_cat:" title="smiling cat face with open mouth"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f63b" href="#" data-shortname=":heart_eyes_cat:" title="smiling cat face with heart-shaped eyes"></li>
+                    <li class="emojione-1f63c" href="#" data-shortname=":smirk_cat:" title="cat face with wry smile"></li>
+                    <li class="emojione-1f63d" href="#" data-shortname=":kissing_cat:" title="kissing cat face with closed eyes"></li>
+                    <li class="emojione-1f63e" href="#" data-shortname=":pouting_cat:" title="pouting cat face"></li>
+                    <li class="emojione-1f63f" href="#" data-shortname=":crying_cat_face:" title="crying cat face"></li>
+                    <li class="emojione-1f640" href="#" data-shortname=":scream_cat:" title="weary cat face"></li>
+                    <li class="emojione-2764" href="#" data-shortname=":heart:" title="heavy black heart"></li>
+                    <li class="emojione-1f494" href="#" data-shortname=":broken_heart:" title="broken heart"></li>
+                    <li class="emojione-1f48c" href="#" data-shortname=":love_letter:" title="love letter"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-1f495" href="#" data-shortname=":two_hearts:" title="two hearts"></li>
+                    <li class="emojione-1f49e" href="#" data-shortname=":revolving_hearts:" title="revolving hearts"></li>
+                    <li class="emojione-1f493" href="#" data-shortname=":heartbeat:" title="beating heart"></li>
+                    <li class="emojione-1f497" href="#" data-shortname=":heartpulse:" title="growing heart"></li>
+                    <li class="emojione-1f496" href="#" data-shortname=":sparkling_heart:" title="sparkling heart"></li>
+                    <li class="emojione-1f498" href="#" data-shortname=":cupid:" title="heart with arrow"></li>
+                    <li class="emojione-1f49d" href="#" data-shortname=":gift_heart:" title="heart with ribbon"></li>
+                    <li class="emojione-1f44d" href="#" data-shortname=":thumbsup:" title="thumbs up sign"></li>
+                    <li class="emojione-1f44e" href="#" data-shortname=":thumbsdown:" title="thumbs down sign"></li>
+                </ul>
+                <ul>
+                    <li class="emojione-270c" href="#" data-shortname=":v:" title="peace"></li>
+                    <li class="emojione-1f44a" href="#" data-shortname=":punch:" title="fist"></li>
+                    <li class="emojione-1f44b" href="#" data-shortname=":wave:" title="waving hand sign"></li>
+                    <li class="emojione-1f4a9" href="#" data-shortname=":poop:" title="pile of poo"></li>
+                    <li class="emojione-1f37a" href="#" data-shortname=":beer:" title="beer mug"></li>
+                    <li class="emojione-1f37b" href="#" data-shortname=":beers:" title="clinking beer mugs"></li>
+                    <li class="emojione-1f389" href="#" data-shortname=":tada:" title="party popper"></li>
+                    <li class="emojione-1f38a" href="#" data-shortname=":confetti_ball:" title="confetti ball"></li>
+                    <li class="emojione-1f308" href="#" data-shortname=":rainbow:" title="rainbow"></li>
+                </ul>
+            </div>
+        </script>
+        <script type="text/javascript" src="lib/mustache.min.js"></script>
+        <script type="text/javascript" src="rtextarea.js"></script>
+    </body>
+</html>

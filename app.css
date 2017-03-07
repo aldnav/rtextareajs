@@ -1,0 +1,8 @@
+.rtextarea-container {
+    width: 800px;
+    min-height: 400px;
+    position: relative;
+}
+.hidden {
+    display: none;
+}

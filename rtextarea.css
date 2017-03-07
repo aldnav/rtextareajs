@@ -1,0 +1,85 @@
+.r-editor {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: inherit;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.r-editor-plugins {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.0);
+    transition: background-color 0.2s;
+}
+.r-editor-plugins:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.r-editor-plugins-reveal {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.r-editor-plugins-reveal .r-editor-plugins-option {
+    color: #000;
+}
+
+.r-editor-plugins-option {
+    align-self: center;
+    margin-right: 8px;
+    cursor: pointer;
+    color: #504e4e;
+}
+
+.r-editor-plugins-option:hover {
+    color: #000;
+}
+
+.r-editor-plugins-extra {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-y: scroll;
+}
+
+/**
+ * give webkit browsers a nicer-looking scrollbar
+ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(120, 120, 120, 0.5);
+}
+
+/*** PLUGIN: Emoji ***/
+.emoji-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.emoji-list ul li {
+    margin: 0 20px;
+}
+[class*=emojione-] {
+    cursor: pointer;
+    transform: scale(2.0);
+    transition: transform 0.2s;
+}
+[class*=emojione-]:hover {
+    transform: scale(2.2);
+}
